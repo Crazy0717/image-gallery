@@ -14,12 +14,7 @@ const ImageCard = ({ photo }: propsTypes) => {
   return (
     <div className="imageCard mb-4 relative transition-all overflow-hidden break-inside-avoid hover:brightness-95">
       <DownLoadButton photo={photo} />
-      <Image
-        src={photo?.urls.regular}
-        width={500}
-        height={500}
-        alt="image"
-      />
+      <Image src={photo?.urls.regular} width={500} height={500} alt="image" />
     </div>
   )
 }
