@@ -21,6 +21,7 @@ export interface User {
 }
 
 export interface Photo {
+  alt_description: string
   id: string
   createdAt: string
   width: number

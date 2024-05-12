@@ -15,20 +15,13 @@ const ImageCard = ({ photo }: propsTypes) => {
   return (
     <div className="imageCard mb-4 relative transition-all overflow-hidden break-inside-avoid hover:brightness-95">
       <DownLoadButton photo={photo} />
-      {/* <img
-        className="w-auto h-auto max-h-full max-w-full object-contain"
-        width={500}
-        height={500}
-        src={photo?.urls.regular}
-        alt="img"
-      /> */}
       <Image
         placeholder="blur"
         blurDataURL={photo.blur_hash}
         src={photo?.urls.regular}
         width={500}
         height={500}
-        alt="image"
+        alt={photo.alt_description}
       />
     </div>
   )
