@@ -18,7 +18,7 @@ const ImageCard = ({ photo }: propsTypes) => {
         src={photo?.urls.regular}
         width={500}
         height={500}
-        alt={photo.alt_description}
+        alt="image"
       />
     </div>
   )
