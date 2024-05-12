@@ -11,13 +11,10 @@ interface propsTypes {
 }
 
 const ImageCard = ({ photo }: propsTypes) => {
-  console.log(photo)
   return (
     <div className="imageCard mb-4 relative transition-all overflow-hidden break-inside-avoid hover:brightness-95">
       <DownLoadButton photo={photo} />
       <Image
-        placeholder="blur"
-        blurDataURL={photo.blur_hash}
         src={photo?.urls.regular}
         width={500}
         height={500}

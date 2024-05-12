@@ -13,18 +13,18 @@ const InfiniteScroll: React.FC<Props> = ({ searchWord }) => {
   const { ref, inView } = useInView()
   const [images, setImages] = useState<Photo[]>([])
   const [page, setPage] = useState<number>(1)
+  const [isLoading, setIsLaoding] = useState(false)
 
   const search = async () => {
+    setIsLaoding(true)
     const response = await SearchService.searchByKeyWord(searchWord, page)
     setImages(images.concat(response.results))
+    setIsLaoding(false)
   }
 
   useEffect(() => {
-    search()
-  }, [page])
-
-  useEffect(() => {
     setPage(page + 1)
+    search()
   }, [inView])
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const InfiniteScroll: React.FC<Props> = ({ searchWord }) => {
     <div>
       <div className="columns-1 md:columns-2 xl:columns-4 gap-4 p-3">
         {images &&
-          images.map((photo, i) => <ImageCard key={i} photo={photo} />)}
+          images.map((photo) => <ImageCard key={photo.id} photo={photo} />)}
       </div>
       <div ref={ref} className="h-10 flex justify-center">
         <Loading size={30} />
